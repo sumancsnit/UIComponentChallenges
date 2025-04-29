@@ -21,6 +21,11 @@ const ChipsInput = () => {
       setValue('');
     }
   };
+
+  const handleDeleteChip = (id) => {
+    setChips(chips.filter((chip) => chip.id !== id));
+  };
+
   return (
     <div
       style={{
@@ -36,7 +41,7 @@ const ChipsInput = () => {
         value={value}
         onChange={handleInputChange}
         onKeyDown={handleKeyPress}
-        placeholder='Type a chip name...'
+        placeholder='Chip name...'
         style={{ padding: '0.5rem', width: '200px' }}
       />
       <div
@@ -54,12 +59,26 @@ const ChipsInput = () => {
               display: 'flex',
               alignItems: 'center',
               margin: '0.5rem',
-              backgroundColor: 'lightskyblue',
+              backgroundColor: '#002984',
               borderRadius: '1rem',
               padding: '5px 10px',
+              fontWeight: 'bold',
             }}
           >
             <span>{chip.label}</span>
+            <button
+              onClick={() => handleDeleteChip(chip.id)}
+              style={{
+                background: 'transparent',
+                border: 'none',
+                marginLeft: '.5rem',
+                cursor: 'pointer',
+                color: 'red',
+                marginTop: '3px',
+              }}
+            >
+              X
+            </button>
           </div>
         ))}
       </div>
