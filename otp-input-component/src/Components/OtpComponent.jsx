@@ -28,11 +28,12 @@ const OtpComponent = () => {
     const value = target.value;
     if (key === 'Backspace' && !value && index) {
       refArr.current?.at(index - 1)?.focus();
-    } else if (key === 'ArrowRight' && value && index < inputArr.length) {
-      refArr.current?.at(index + 1)?.focus();
-    } else if (key === 'ArrowLeft' && value && index > 0) {
-      refArr.current?.at(index - 1)?.focus();
     }
+    // else if (key === 'ArrowRight' && value && index < inputArr.length) {
+    //   refArr.current?.at(index + 1)?.focus();
+    // } else if (key === 'ArrowLeft' && value && index > 0) {
+    //   refArr.current?.at(index - 1)?.focus();
+    // }
   };
 
   return (
